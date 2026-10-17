@@ -169,5 +169,6 @@ Simplest reliable setup inside budget: **Wix Bookings** with one "Trial class" *
 | `css/styles.css` | Design system (tokens at the top) |
 | `js/site.js` | Header/footer, waves, scroll reveals, accordion, tabs, tracking |
 | `js/trial.js` | Trial journey; edit `PROGRAMS` / `slotsFor()` for demo data |
+| `website-assets/` | **Every asset used on the site** (297 files): originals + web images, every photo in its frame, vector art (dotted ring, waves, blobs, masks), icons, container shapes, UI component renders, reference screenshots. Open `website-assets/asset-index.html` |
 | `img/` | Optimised WebP of the original Baekho photos/logos |
 | `assets/` | (Not in the repo.) Original full-size downloads from baekho.my, kept locally as source files |
