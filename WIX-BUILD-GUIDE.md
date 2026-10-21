@@ -2,7 +2,9 @@
 
 The HTML files in this folder are a **working design prototype** (open `index.html` in a browser). Use it as the visual spec to rebuild in Wix Studio. Nothing here has been published or connected to a Wix site.
 
-Design direction follows the **client brief** (Google Doc), not the black/red mockup: brand blue from the Baekho tiger logo, playful warm accents, and a continuous "flowing" scroll with curves, blobs and overlaps instead of stacked rectangles. The mockup's *structure* (strong hero, benefits strip, program cards, About split, CTA band, rich footer) is kept.
+Design direction follows the **client brief** (Google Doc), not the black/red mockup: brand blue from the Baekho tiger logo, playful warm accents, and a continuous "flowing" scroll with curves, blobs and overlaps instead of stacked rectangles.
+
+**Round 2 (client WhatsApp feedback) is applied:** the old site's dark blue **#001446** is now a core colour (all heroes, programs, quote strip, dojos, footer); the hero is dark blue; a **video-background quote strip** was added; **all programs** are shown (13, not 5) as **big badges** grouped like the old site; **all 3 dojos** are listed (Putra Heights, Bandar Rimbayu / Eco Sanctuary, Alam Impian). The mockup's *structure* (strong hero, benefits strip, program cards, About split, CTA band, rich footer) is kept.
 
 ---
 
@@ -19,7 +21,13 @@ Design direction follows the **client brief** (Google Doc), not the black/red mo
 | Email | admin@baekho.my (mailto) | baekho.management@gmail.com (shown) |
 | Trial class | Old site: **free** trial | Brief: customer **pays** for a trial |
 | "UFC for Kids" | Pricing page: BJJ + Muay Thai + MMA, 3x/week, ages 7–12 | No separate program page on old site |
-| Quote on old homepage | Credited to Bruce Lee | Used in prototype **without** attribution; confirm |
+| Quote on old homepage | Credited to Bruce Lee on the client's own banner | **Resolved:** shown as "— Bruce Lee" in the quote strip and About page |
+
+### Needed from Baekho for the round-2 changes
+- **Video file for the quote strip** (short, silent, loopable MP4, ideally under 8 MB, 1080p or less). The prototype looks for `video/quote-strip.mp4` and falls back to an animated deep-blue background. In Wix Studio: Strip → Background → Video.
+- **Alam Impian**: opening status, address, programs, schedule. The old site only said "coming in 2023", so it is shown as "to be confirmed" with no address.
+- Dojo wording: the old site uses **Bandar Rimbayu**, the URL and address use **Eco Sanctuary**; the prototype shows both.
+- Badge art for **UFC for Kids, Combat Lab and Poomsae Clinic** (currently reusing Wolf MMA, Tiger Taeks and the main logo).
 
 ### Content I could not find (shown as dashed "to be supplied" placeholders)
 Class timetable (days/times, except Open Dojo Fri 8:30–10pm and Combat Lab 1:30–3:30pm) · trial price and terms · ages for Combat Lab and Poomsae Clinic · parking · testimonials · tournament results/medal counts · coach profiles · NX4T coach profiles · founder story · grading schedule/fees · Baekho Score explanation · first-class guide · safety policy · YouTube channel link · real photos for UFC for Kids / Combat Lab / Poomsae Clinic (mascot art is used instead) · event and VR Taekwondo details · proper badge artwork for Combat Lab and Poomsae Clinic (currently reusing Tiger Taeks / main logo).
@@ -35,7 +43,8 @@ NX4T prices come from the brief (RM600 / RM1,200 / RM1,800 per month; 10 session
 **Colors** (name them exactly like this so the team can find them)
 | Token | Hex | Use |
 |---|---|---|
-| Ink | `#0A1B33` | text, dark sections, footer |
+| **Deep blue** | `#001446` | **hero, programs, quote strip, dojos, footer, mobile menu (colour from the old Baekho site)** |
+| Ink | `#0A1B33` | body/heading text |
 | Navy | `#0C2A55` | NX4T background, secondary dark |
 | Blue (brand) | `#0A6CF0` | links, primary blue buttons, CTA band |
 | Sky | `#5BBFFF` | accents on dark |
@@ -61,8 +70,8 @@ NX4T prices come from the brief (RM600 / RM1,200 / RM1,800 per month; 10 session
 | Page | URL | Purpose |
 |---|---|---|
 | Home | `/` | story, benefits, programs, locations, proof, trial CTA |
-| Programs | `/programs` | Little Taeks, Rimba Stars, Tiger Taeks, UFC for Kids, Combat Lab, Poomsae Clinic |
-| Locations & Schedules | `/locations` | branch selector, map, timetable, pricing |
+| Programs | `/programs` | All 13: Taekwondo (Little Taeks, Rimba Stars, Tiger Taeks), Martial arts (Muay Thai, Boa BJJ, Wolf MMA, Capoeira), Functional fitness (Gryphon, Phoenix, Dragon), Specialist (UFC for Kids, Combat Lab, Poomsae Clinic) |
+| Locations & Schedules | `/locations` | 3-dojo selector (Putra Heights, Bandar Rimbayu / Eco Sanctuary, Alam Impian), map, timetable, pricing |
 | About Baekho | `/about` | story, philosophy, methodology, coaches, student journey |
 | Achievements | `/achievements` | results, pathways, stories, gallery |
 | Parents Hub | `/parents-hub` | progress, FAQ, YouTube syllabus, events |
@@ -94,15 +103,16 @@ The brief rejects stacked rectangles. In the prototype every section sits on one
 Use **Studio sections → containers → grids/stacks**. Avoid absolute positioning for structure; absolute/layered is OK only for decorative blobs, stickers and mascots.
 
 ### Home
-1. **Hero** — 2-column grid (text | layered photos). H1 "Serious coaching. Seriously fun." with "Seriously" in Blue and "fun." highlighted with Sun underline. Buttons: *Book a trial class* → `/trial`; *Ask on WhatsApp* → `https://wa.me/60125138813?text=…`. Photo: `photo-class-kids` in a blob mask; small overlapping `photo-syllabus`. Entrance animation: H1 lines *Reveal up*, stagger 120ms.
+1. **Hero** — **deep blue #001446** background with a blue glow top-right, 2-column grid (text | layered photos), white heading, sky-blue and yellow highlights. H1 "Serious coaching. Seriously fun." with "Seriously" in Blue and "fun." highlighted with Sun underline. Buttons: *Book a trial class* → `/trial`; *Ask on WhatsApp* → `https://wa.me/60125138813?text=…`. Photo: `photo-class-kids` in a blob mask; small overlapping `photo-syllabus`. Entrance animation: H1 lines *Reveal up*, stagger 120ms.
 2. **Benefits** — 4 repeater cards (CMS or Repeater element). Staggered vertical offset on even cards on desktop, 2-col tablet, 1-col mobile. Icon *hover rotate*.
-3. **Programs** (dark Ink section) — CMS-connected **Programs** repeater: 3 + 2 card layout on desktop, 2-col tablet, 1-col mobile. Cards link to `/programs#anchor`.
-4. **About** — split: photo (blob mask, overlapping circle photo) | copy with 3 ticks.
-5. **Methodology preview** — arch-masked photo + numbered path (dotted connector).
-6. **Locations** — 2 cards from **Locations** CMS.
-7. **Testimonials** — CMS repeater; hide section if empty until real quotes arrive.
-8. **CTA band** — Blue background, two mascots at the bottom corners, buttons *Book a trial class* + *WhatsApp us*.
-9. **Footer** — Ink, wave on top, 4 columns, social icons, WhatsApp.
+3. **Programs** (deep blue) — **big badges**: one Repeater per group (Taekwondo 3, Martial arts 4, Functional fitness 3, Specialist 3), each card = badge image (up to 280px), name, age line, "See program". Soft coloured glow behind each badge. CMS-connected; 3-up desktop, 2-up tablet, 1-up mobile. Cards link to `/programs#id`.
+4. **About** (cream) — split: photo (blob mask, overlapping circle photo) | copy with 3 ticks.
+5. **Quote strip with video background** (deep blue): Studio Strip with **video background** (looping, muted, with dark overlay), the quote "Learning is never cumulative. It is a movement of knowing, which has no beginning and no end." and "— Bruce Lee". Wave on top. Provide a poster image for mobile/data-saver.
+6. **Methodology preview** — arch-masked photo + numbered path (dotted connector).
+7. **Dojos** (deep blue) — **3 cards** from **Locations** CMS: dojo badge image, name, address, program chips, button. Alam Impian is a dashed "coming soon / to be confirmed" card.
+8. **Testimonials** — CMS repeater; hide section if empty until real quotes arrive.
+9. **CTA band** — Blue background, two mascots at the bottom corners, buttons *Book a trial class* + *WhatsApp us*.
+10. **Footer** — deep blue, wave on top, 4 columns, social icons, WhatsApp.
 
 ### Programs
 Hero with mascot collage + jump chips (anchor links). Then one section per program, alternating image left/right and Cream/Ice backgrounds: age + location chips, description, 3 ticks, collapsible "What's included" (Studio Accordion), price + *Book a trial* → `/trial?program=<id>` (use Wix **Dynamic page** or query params). Final "More ways to train" cards for Muay Thai, BJJ, Kids MMA, Capoeira, Gryphon Fitness (flag *confirm if still running*).
@@ -169,6 +179,6 @@ Simplest reliable setup inside budget: **Wix Bookings** with one "Trial class" *
 | `css/styles.css` | Design system (tokens at the top) |
 | `js/site.js` | Header/footer, waves, scroll reveals, accordion, tabs, tracking |
 | `js/trial.js` | Trial journey; edit `PROGRAMS` / `slotsFor()` for demo data |
-| `website-assets/` | **Every asset used on the site** (297 files): originals + web images, every photo in its frame, vector art (dotted ring, waves, blobs, masks), icons, container shapes, UI component renders, reference screenshots. Open `website-assets/asset-index.html` |
+| `website-assets/` | **Every asset used on the site** (322 files): originals + web images, every photo in its frame, vector art (dotted ring, waves, blobs, masks), icons, container shapes, UI component renders, reference screenshots. Open `website-assets/asset-index.html` |
 | `img/` | Optimised WebP of the original Baekho photos/logos |
 | `assets/` | (Not in the repo.) Original full-size downloads from baekho.my, kept locally as source files |

@@ -11,6 +11,9 @@ var PROGRAMS = [
   {id:'little-taeks',name:'Little Taeks',note:'Taekwondo',ages:['3-6'],locs:['eco-sanctuary','putra-heights']},
   {id:'rimba-stars',name:'Rimba Stars',note:'Taekwondo',ages:['7-12'],locs:['eco-sanctuary','putra-heights']},
   {id:'tiger-taeks',name:'Tiger Taeks',note:'Taekwondo for teens',ages:['13-17'],locs:['eco-sanctuary','putra-heights']},
+  {id:'muay-thai',name:'Muay Thai',note:'Ages 5–17',ages:['3-6','7-12','13-17'],locs:['eco-sanctuary']},
+  {id:'bjj',name:'Boa BJJ',note:'Brazilian Jiu-Jitsu · age to be confirmed',ages:['3-6','7-12','13-17'],locs:['eco-sanctuary']},
+  {id:'mma',name:'Wolf MMA',note:'Kids MMA · age to be confirmed',ages:['3-6','7-12','13-17'],locs:['eco-sanctuary']},
   {id:'ufc-for-kids',name:'UFC for Kids',note:'BJJ + Muay Thai + MMA',ages:['7-12'],locs:['eco-sanctuary']},
   {id:'combat-lab',name:'Combat Lab',note:'Kyorugi sparring · age to be confirmed',ages:['7-12','13-17'],locs:['eco-sanctuary']},
   {id:'poomsae-clinic',name:'Poomsae Clinic',note:'Forms · age to be confirmed',ages:['7-12','13-17'],locs:['eco-sanctuary']}

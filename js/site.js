@@ -63,8 +63,8 @@ if(f){
     '<div class="fbrand"><img src="img/logo.webp" alt="Baekho Martial Arts" width="110" height="100"><p>Serious coaching, delivered through fun. Taekwondo, Muay Thai, BJJ and more for kids and teens in the Klang Valley.</p><p><b style="color:#fff">Respect All. Fear None.</b></p>'+
       '<div class="social"><a href="'+B.wa+'" aria-label="WhatsApp" data-track="whatsapp_click">'+ICON.wa+'</a><a href="'+B.ig+'" aria-label="Instagram">'+ICON.ig+'</a><a href="'+B.fb+'" aria-label="Facebook">'+ICON.fb+'</a></div></div>'+
     '<div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Baekho</a></li><li><a href="achievements.html">Achievements</a></li><li><a href="parents-hub.html">Parents Hub</a></li><li><a href="nx4t.html">NX4T Personal Training</a></li></ul></div>'+
-    '<div><h4>Train</h4><ul><li><a href="programs.html#little-taeks">Little Taeks</a></li><li><a href="programs.html#rimba-stars">Rimba Stars</a></li><li><a href="programs.html#ufc-for-kids">UFC for Kids</a></li><li><a href="programs.html#combat-lab">Combat Lab</a></li><li><a href="programs.html#poomsae-clinic">Poomsae Clinic</a></li><li><a href="locations.html">Locations &amp; schedules</a></li></ul></div>'+
-    '<div><h4>Say hi</h4><ul><li><a href="'+B.phoneHref+'">'+B.phone+'</a></li><li><a href="mailto:'+B.email+'">'+B.email+'</a></li><li>'+B.locs.eco.name+', '+B.locs.eco.area+'</li><li>'+B.locs.putra.name+', '+B.locs.putra.area+'</li><li><a class="btn sm" style="margin-top:8px;color:var(--ink)" href="trial.html">Book a trial →</a></li></ul></div>'+
+    '<div><h4>Train</h4><ul><li><a href="programs.html#little-taeks">Little Taeks</a></li><li><a href="programs.html#rimba-stars">Rimba Stars</a></li><li><a href="programs.html#martial-arts">Muay Thai, BJJ, MMA &amp; Capoeira</a></li><li><a href="programs.html#fitness">Functional fitness</a></li><li><a href="programs.html#specialist">UFC for Kids, Combat Lab &amp; Poomsae</a></li><li><a href="locations.html">Locations &amp; schedules</a></li></ul></div>'+
+    '<div><h4>Say hi</h4><ul><li><a href="'+B.phoneHref+'">'+B.phone+'</a></li><li><a href="mailto:'+B.email+'">'+B.email+'</a></li><li>'+B.locs.putra.name+', '+B.locs.putra.area+'</li><li>'+B.locs.eco.name+' ('+B.locs.eco.area+')</li><li>Alam Impian <span class="tbc" style="font-size:.6rem">status TBC</span></li><li><a class="btn sm" style="margin-top:8px;color:var(--ink)" href="trial.html">Book a trial →</a></li></ul></div>'+
     '</div><div class="fbottom"><span>© '+new Date().getFullYear()+' Baekho Martial Arts. All rights reserved.</span><span>Respect All. Fear None.</span></div></div>';
   var fab = document.createElement('a');
   fab.className='wa-fab'; fab.href=B.wa+B.waText; fab.setAttribute('data-track','whatsapp_click'); fab.target='_blank'; fab.rel='noopener';
@@ -78,8 +78,18 @@ var WAVES = [
  'M0,0H1440V70C1180,10 980,110 720,70C460,30 220,0 0,80Z',
  'M0,0H1440V50C1300,100 1150,20 960,45C700,85 520,115 300,70C190,48 90,40 0,70Z'
 ];
+/* the wave takes the colour of the section above it, so recolouring a section never leaves a seam */
+function prevColour(w){
+  var host = w.parentElement, prev = host && host.previousElementSibling;
+  if(prev && prev.tagName==='MAIN') prev = prev.lastElementChild;
+  if(!prev) return null;
+  var bg = getComputedStyle(prev).backgroundColor;
+  return (bg && bg!=='transparent' && bg!=='rgba(0, 0, 0, 0)') ? bg : null;
+}
+var firstSec = document.querySelector('main > section');
+if(firstSec && /\b(hero|phero|nx-hero)\b/.test(firstSec.className)) document.body.classList.add('dark-top');
 document.querySelectorAll('.wave').forEach(function(w){
-  var v = (parseInt(w.dataset.v,10)||1)-1, c = w.dataset.c || 'var(--cream)';
+  var v = (parseInt(w.dataset.v,10)||1)-1, c = prevColour(w) || w.dataset.c || 'var(--cream)';
   w.innerHTML = '<svg viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="'+WAVES[v]+'" fill="'+c+'"/></svg>';
 });
 
@@ -118,6 +128,8 @@ document.querySelectorAll('[data-tabs]').forEach(function(root){
     tabs.forEach(function(x){x.setAttribute('aria-selected',x===t)});
     panels.forEach(function(p){p.hidden = p.id !== t.getAttribute('aria-controls')});
   }
+  var hashTab = location.hash && root.querySelector('#tab-' + location.hash.slice(1));
+  if(hashTab) select(hashTab);
   tabs.forEach(function(t){
     t.addEventListener('click',function(){select(t)});
     t.addEventListener('keydown',function(e){
